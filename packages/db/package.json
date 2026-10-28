@@ -1,0 +1,29 @@
+{
+  "name": "@myrehat-task-b/db",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./*": "./src/*.ts"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "check-types": "tsc -b",
+    "db:push": "drizzle-kit push",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate:deploy": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio",
+    "db:migrate": "drizzle-kit migrate"
+  },
+  "devDependencies": {
+    "typescript": "catalog:",
+    "@myrehat-task-b/config": "workspace:*",
+    "drizzle-kit": "1.0.0-rc.5",
+    "@types/pg": "^8.23.1",
+    "varlock": "catalog:"
+  },
+  "dependencies": {
+    "zod": "catalog:",
+    "drizzle-orm": "catalog:",
+    "pg": "^8.23.0"
+  }
+}
