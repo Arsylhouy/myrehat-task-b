@@ -1,9 +1,13 @@
+import type { AppRouterClient } from "@myrehat-task-b/api/routers/index";
 import { createORPCClient } from "@orpc/client";
 import { RPCLink } from "@orpc/client/fetch";
 import { createTanstackQueryUtils } from "@orpc/tanstack-query";
-import { environmentManager, QueryCache, QueryClient } from "@tanstack/react-query";
+import {
+	environmentManager,
+	QueryCache,
+	QueryClient,
+} from "@tanstack/react-query";
 import { toast } from "sonner";
-import type { AppRouterClient } from "@myrehat-task-b/api/routers/index";
 
 export function createQueryClient() {
 	return new QueryClient({
@@ -54,14 +58,14 @@ export const link = new RPCLink({
 	},
 	headers: async () => {
 		if (typeof window !== "undefined") {
-			return {}
+			return {};
 		}
 
-		const { headers } = await import("next/headers")
-		return Object.fromEntries(await headers())
+		const { headers } = await import("next/headers");
+		return Object.fromEntries(await headers());
 	},
 });
 
-export const client: AppRouterClient = createORPCClient(link)
+export const client: AppRouterClient = createORPCClient(link);
 
-export const orpc = createTanstackQueryUtils(client)
+export const orpc = createTanstackQueryUtils(client);

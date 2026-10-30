@@ -1,37 +1,37 @@
 {
-  "name": "server",
-  "main": "src/index.ts",
-  "type": "module",
-  "scripts": {
-    "build": "tsc -b ../../packages/api && tsdown",
-    "check-types": "tsc -b ../../packages/api && tsc --noEmit",
-    "compile": "bun build --compile --no-compile-autoload-dotenv --minify --sourcemap --bytecode ./src/index.ts --outfile server",
-    "dev": "bun run --hot src/index.ts",
-    "start": "bun run dist/index.mjs",
-    "env:generate": "varlock codegen",
-    "auth:generate": "varlock run -- pnpm dlx auth@latest generate --config src/services.ts --output ../../packages/db/src/schema/auth.ts --yes"
-  },
-  "dependencies": {
-    "zod": "catalog:",
-    "@myrehat-task-b/api": "workspace:*",
-    "@myrehat-task-b/auth": "workspace:*",
-    "@myrehat-task-b/db": "workspace:*",
-    "varlock": "catalog:",
-    "elysia": "^1.4.30",
-    "@elysiajs/cors": "^1.4.2",
-    "@sinclair/typebox": "^0.34.52",
-    "@orpc/server": "catalog:",
-    "@orpc/openapi": "catalog:",
-    "@orpc/zod": "catalog:",
-    "better-auth": "catalog:",
-    "ai": "catalog:",
-    "@ai-sdk/google": "^4.0.64",
-    "@ai-sdk/devtools": "^1.0.15"
-  },
-  "devDependencies": {
-    "typescript": "catalog:",
-    "tsdown": "^0.23.0",
-    "@myrehat-task-b/config": "workspace:*",
-    "@types/bun": "catalog:"
-  }
+	"name": "server",
+	"main": "src/index.ts",
+	"type": "module",
+	"scripts": {
+		"build": "tsc -b ../../packages/api && tsdown",
+		"check-types": "tsc -b ../../packages/api && tsc --noEmit",
+		"compile": "bun build --compile --no-compile-autoload-dotenv --minify --sourcemap --bytecode ./src/index.ts --outfile server",
+		"dev": "bun run --hot src/index.ts",
+		"start": "bun run dist/index.mjs",
+		"env:generate": "varlock codegen",
+		"auth:generate": "varlock run -- pnpm dlx auth@latest generate --config src/services.ts --output ../../packages/db/src/schema/auth.ts --yes"
+	},
+	"dependencies": {
+		"zod": "catalog:",
+		"@myrehat-task-b/api": "workspace:*",
+		"@myrehat-task-b/auth": "workspace:*",
+		"@myrehat-task-b/db": "workspace:*",
+		"varlock": "catalog:",
+		"elysia": "^1.4.30",
+		"@elysiajs/cors": "^1.4.2",
+		"@sinclair/typebox": "^0.34.52",
+		"@orpc/server": "catalog:",
+		"@orpc/openapi": "catalog:",
+		"@orpc/zod": "catalog:",
+		"better-auth": "catalog:",
+		"ai": "catalog:",
+		"@ai-sdk/google": "^4.0.64",
+		"@ai-sdk/devtools": "^1.0.15"
+	},
+	"devDependencies": {
+		"typescript": "catalog:",
+		"tsdown": "^0.23.0",
+		"@myrehat-task-b/config": "workspace:*",
+		"@types/bun": "catalog:"
+	}
 }

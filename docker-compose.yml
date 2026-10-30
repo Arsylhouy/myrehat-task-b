@@ -65,7 +65,6 @@ services:
       start_period: 10s
     restart: unless-stopped
 
-
 # BuildKit makes these available only while install/build commands run.
 secrets:
   web_env:

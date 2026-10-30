@@ -1,24 +1,24 @@
 {
-  "name": "@myrehat-task-b/auth",
-  "exports": {
-    ".": "./src/index.ts",
-    "./*": "./src/*.ts"
-  },
-  "type": "module",
-  "scripts": {
-    "build": "tsc -b",
-    "check-types": "tsc -b"
-  },
-  "devDependencies": {
-    "typescript": "catalog:",
-    "@myrehat-task-b/config": "workspace:*"
-  },
-  "dependencies": {
-    "zod": "catalog:",
-    "@myrehat-task-b/db": "workspace:*",
-    "better-auth": "catalog:",
-    "@better-auth/core": "1.7.12",
-    "@better-auth/drizzle-adapter": "1.7.12",
-    "drizzle-orm": "catalog:"
-  }
+	"name": "@myrehat-task-b/auth",
+	"exports": {
+		".": "./src/index.ts",
+		"./*": "./src/*.ts"
+	},
+	"type": "module",
+	"scripts": {
+		"build": "tsc -b",
+		"check-types": "tsc -b"
+	},
+	"devDependencies": {
+		"typescript": "catalog:",
+		"@myrehat-task-b/config": "workspace:*"
+	},
+	"dependencies": {
+		"zod": "catalog:",
+		"@myrehat-task-b/db": "workspace:*",
+		"better-auth": "catalog:",
+		"@better-auth/core": "1.7.12",
+		"@better-auth/drizzle-adapter": "1.7.12",
+		"drizzle-orm": "catalog:"
+	}
 }

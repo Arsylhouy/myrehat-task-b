@@ -1,16 +1,23 @@
-import { ENV } from "./env.server";
-import { Elysia } from "elysia";
-import { cors } from "@elysiajs/cors";
-import { google } from "@ai-sdk/google";
-import { convertToModelMessages, createUIMessageStreamResponse, streamText, toUIMessageStream, type UIMessage, wrapLanguageModel } from "ai";
 import { devToolsMiddleware } from "@ai-sdk/devtools";
+import { google } from "@ai-sdk/google";
+import { cors } from "@elysiajs/cors";
+import { appRouter } from "@myrehat-task-b/api/routers/index";
 import { OpenAPIHandler } from "@orpc/openapi/fetch";
 import { OpenAPIReferencePlugin } from "@orpc/openapi/plugins";
-import { ZodToJsonSchemaConverter } from "@orpc/zod/zod4";
-import { RPCHandler } from "@orpc/server/fetch";
 import { onError } from "@orpc/server";
-import { appRouter } from "@myrehat-task-b/api/routers/index";
+import { RPCHandler } from "@orpc/server/fetch";
+import { ZodToJsonSchemaConverter } from "@orpc/zod/zod4";
+import {
+	convertToModelMessages,
+	createUIMessageStreamResponse,
+	streamText,
+	toUIMessageStream,
+	type UIMessage,
+	wrapLanguageModel,
+} from "ai";
+import { Elysia } from "elysia";
 import { createContext } from "./context";
+import { ENV } from "./env.server";
 import { auth } from "./services";
 
 const rpcHandler = new RPCHandler(appRouter, {
@@ -47,7 +54,7 @@ new Elysia()
 		if (["POST", "GET"].includes(request.method)) {
 			return auth.handler(request);
 		}
-		return status(405)
+		return status(405);
 	})
 	.all(
 		"/rpc*",
@@ -60,7 +67,7 @@ new Elysia()
 		},
 		{
 			parse: "none",
-		}
+		},
 	)
 	.all(
 		"/api-reference*",
@@ -73,7 +80,7 @@ new Elysia()
 		},
 		{
 			parse: "none",
-		}
+		},
 	)
 	.post("/ai", async (context) => {
 		const body = (await context.request.json()) as { messages?: UIMessage[] };
